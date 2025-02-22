@@ -1,13 +1,13 @@
 import React from "react";
 
-const Card = ({ users = [] }) => {
+const Card = ({ users = [] ,handleRemoveUser}) => {
   return (
     <>
       {users.length > 0 ? (
         users.map((item, index) => (
           <div
             key={index}
-            className="w-52 h-52 bg-blue-400 rounded-2xl flex flex-col items-center justify-center p-2 shadow-lg"
+            className="w-52  h-52 relative bg-blue-400 rounded-2xl flex flex-col items-center justify-center p-2 shadow-lg"
           >
             <div className="w-44 h-44 overflow-hidden rounded-xl bg-black">
               <img
@@ -17,6 +17,8 @@ const Card = ({ users = [] }) => {
               />
             </div>
             <p className="text-white font-semibold">{item.name}</p>
+            <button  onClick={() => handleRemoveUser(index)}
+              className=" px-3 py-1 bg-red-500 text-white rounded-md" >remove</button>
           </div>
         ))
       ) : (
